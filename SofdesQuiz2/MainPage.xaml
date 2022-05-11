@@ -132,7 +132,8 @@
             BorderThickness="2"
             Margin="16,8,16,16"
             ItemsSource="{x:Bind Employees}"
-            DoubleTapped="EmployeeEdit"/>
+            DoubleTapped="EmployeeEdit"
+            ColumnWidth="*"/>
         <controls:InAppNotification
             x:Name="Notification"
             Grid.Column="0"

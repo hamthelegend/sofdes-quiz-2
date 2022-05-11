@@ -96,6 +96,11 @@ namespace SofdesQuiz2
             var lastName = LastNameInput.Text;
             var profession = ProfessionInput.Text;
             var selectedEmployee = EmployeesGrid.SelectedItem as Employee;
+            if (selectedEmployee == null)
+            {
+                Notification.Show("Select an employee to update from the list first.", 2000);
+                return;
+            }
             foreach (var employee in Employees)
             {
                 if (employee.Id == id && employee != selectedEmployee)
@@ -103,11 +108,6 @@ namespace SofdesQuiz2
                     Notification.Show("Employee ID already exists", 2000);
                     return;
                 }
-            }
-            if (selectedEmployee == null)
-            {
-                Notification.Show("Select an employee to update from the list first.", 2000);
-                return;
             }
             if (string.IsNullOrWhiteSpace(id) || string.IsNullOrWhiteSpace(firstName) || string.IsNullOrWhiteSpace(lastName) || string.IsNullOrWhiteSpace(profession))
             {
